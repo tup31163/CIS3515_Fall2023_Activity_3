@@ -3,6 +3,7 @@ package edu.temple.inclassuiacvitivity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
 import android.widget.AdapterView.OnItemSelectedListener
 
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         val displayTextView = findViewById<TextView>(R.id.textDisplay)
 
         /* Step 1: Populate this array */
-        val numberArray = Array(50){i -> (i + 1) * 2}
+        val numberArray = Array(50){(it + 1) * 2}
 
         with (spinner) {
             /* Step 2: Create adapter to display items from array in Spinner */
@@ -36,6 +37,9 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
+
+        spinner.adapter = TextSizeAdapter(this, numberArray)
+
 
     }
 }
